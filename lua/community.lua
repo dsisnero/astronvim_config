@@ -6,8 +6,9 @@
 
 ---@type LazySpec
 return {
+
   -- TODO: Remove branch v4 on release
-  { "AstroNvim/astrocommunity"},
+  { "AstroNvim/astrocommunity", dir = "c:/windows_home/src/dsisnero/astrocommunity" },
   { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.completion.codeium-vim" },
   { import = "astrocommunity.debugging.nvim-bqf" },
@@ -21,10 +22,11 @@ return {
   { import = "astrocommunity.pack.typescript-all-in-one" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.python" },
-  -- { import = "astrocommunity.pack.ruby" },
+  { import = "astrocommunity.pack.ruby" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.recipes.neovide" },
   { import = "astrocommunity.test.neotest" },
   -- { import = "astrocommunity.utility.telescope-fzy-native-nvim" },
   -- import/override with your plugins folder
