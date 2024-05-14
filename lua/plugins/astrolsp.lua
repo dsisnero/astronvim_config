@@ -61,7 +61,7 @@ return {
               ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
               ["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
               ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
-              ["https://raw.githubusercontent.com/dsisnero/shards_specification/mqin/shards.json"] = "shard.{yml,yaml}",
+              ["https://github.com/dsisnero/shards_specification/raw/main/shards.json"] = "shard.{yml,yaml}",
             },
           },
         },
@@ -112,7 +112,7 @@ return {
         --   desc = "Declaration of current symbol",
         --   cond = "textDocument/declaration",
         -- },
-        -- ["<Leader>uY"] = {
+        -- [""Leader"uY"] = {
         --   function() require("astrolsp.toggles").buffer_semantic_tokens() end,
         --   desc = "Toggle LSP semantic highlight (buffer)",
         --   cond = function(client) return client.server_capabilities.semanticTokensProvider and vim.lsp.semantic_tokens end,
