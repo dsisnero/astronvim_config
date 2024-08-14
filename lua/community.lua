@@ -11,7 +11,7 @@ return {
   { "AstroNvim/astrocommunity", dir = "c:/windows_home/src/dsisnero/astrocommunity" },
   { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.completion.codeium-vim" },
-  { import = "astrocommunity.debugging.nvim-bqf" },
+  { import = "astrocommunity.quickfix.nvim-bqf" },
   { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
   { import = "astrocommunity.editing-support.neogen" },
   -- { import = "astrocommunity.lsp.lsp-lens.nvim" },
