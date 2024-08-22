@@ -8,7 +8,7 @@
 return {
 
   -- TODO: Remove branch v4 on release
-  { "AstroNvim/astrocommunity", dir = "c:/windows_home/src/dsisnero/astrocommunity" },
+  "AstroNvim/astrocommunity",
   { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.completion.codeium-vim" },
   { import = "astrocommunity.quickfix.nvim-bqf" },
