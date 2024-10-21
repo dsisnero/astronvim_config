@@ -19,3 +19,24 @@ vim.filetype.add {
     ["Guardfile"] = "ruby",
   },
 }
+-----------------------------------------------------------
+-- Autocommand functions
+-----------------------------------------------------------
+
+-- Define autocommands with Lua APIs
+-- See: :h api-autocmd, :h augroup
+-- https://neovim.io/doc/user/autocmd.html
+local function augroup(name) return vim.api.nvim_create_augroup("doms_" .. name, { clear = true }) end
+-- local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
+local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
+
+-- wrap and check for spell in text filetypes
+autocmd("FileType", {
+  group = augroup "wrap_spell",
+  pattern = { "text", "plaintex", "typst", "gitcommit", "markdown", "asciidoc" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+    vim.opt_local.textwidth = 80
+  end,
+})
