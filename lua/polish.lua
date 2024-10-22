@@ -5,6 +5,7 @@
 -- fit in the normal config locations above can go here
 
 -- Set up custom filetypes
+vim.opt.spelllang = "en_us"
 vim.filetype.add {
   -- extension = {
   --   foo = "fooscript",
@@ -33,10 +34,11 @@ local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 -- wrap and check for spell in text filetypes
 autocmd("FileType", {
   group = augroup "wrap_spell",
-  pattern = { "text", "plaintex", "typst", "gitcommit", "markdown", "asciidoc" },
+  pattern = { "text", "plaintex", "typst", "gitcommit", "markdown", "asciidoc", "csv" },
   callback = function()
     vim.opt_local.wrap = true
     vim.opt_local.spell = true
     vim.opt_local.textwidth = 80
+    -- vim.opt_local.spelllang = "en_us"
   end,
 })
