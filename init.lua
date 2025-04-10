@@ -17,3 +17,5 @@ end
 
 require "lazy_setup"
 require "polish"
+
+if vim.g.vscode then require "user.vscode_keymaps" end
