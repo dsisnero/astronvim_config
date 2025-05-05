@@ -30,18 +30,11 @@ return {
           enabled = true,
           allow_filetypes = { "ruby" },
         },
-        ruby_lsp = {
-          command = {
-            "ruby-lsp",
-            "stdio",
-            "--formatter=rubocop", -- Explicit formatter
-            "--enable=formatting", -- Ensure formatting is enabled
-          },
-        },
       },
       -- Configure LSP server settings
       config = {
-        ruby_lsp = function(opts)
+        ruby_ls = function(opts)
+          opts.cmd = { "ruby-lsp" } -- Explicitly set the command
           opts.settings = {
             rubyLsp = {
               formatter = "rubocop",
