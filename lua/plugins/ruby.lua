@@ -4,7 +4,7 @@ return {
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed =
-        require("astrocore").list_insert_unique(opts.ensure_installed, { "ruby_lsp", "solargraph" })
+        require("astrocore").list_insert_unique(opts.ensure_installed, { "ruby_lsp" }) -- Remove solargraph
     end,
   },
   {
@@ -12,7 +12,7 @@ return {
     optional = true,
     opts = function(_, opts)
       opts.ensure_installed =
-        require("astrocore").list_insert_unique(opts.ensure_installed, { "ruby_lsp", "solargraph", "rubocop" })
+        require("astrocore").list_insert_unique(opts.ensure_installed, { "ruby_lsp", "rubocop" })
     end,
   },
   {
@@ -21,12 +21,38 @@ return {
     dependencies = { "suketa/nvim-dap-ruby", config = true },
   },
   {
-    "stevearc/conform.nvim",
+    "AstroNvim/astrolsp",
     optional = true,
+    ---@type AstroLSPOpts
     opts = {
-      formatters_by_ft = {
-        ruby = { "rubocop" },
+      formatting = {
+        format_on_save = {
+          enabled = true,
+          allow_filetypes = { "ruby" },
+        },
+        ruby_lsp = {
+          command = {
+            "ruby-lsp",
+            "stdio",
+            "--formatter=rubocop", -- Explicit formatter
+            "--enable=formatting", -- Ensure formatting is enabled
+          },
+        },
       },
-    },
-  },
+      -- Configure LSP server settings
+      config = {
+        ruby_lsp = function(opts)
+          opts.settings = {
+            rubyLsp = {
+              formatter = "rubocop",
+              rubocop = {
+                onSave = true
+              }
+            }
+          }
+          return opts
+        end
+      }
+    }
+  }
 }
